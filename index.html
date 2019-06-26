@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Movie listing
+  </title>
+  <script type="text/javascript" src="resources/js/script.js"></script>
+  <script type="text/javascript" src="resources/js/movie.js"></script>
+  <script type="text/javascript" src="resources/js/details.js"></script>
+  <script type="text/javascript" src="resources/js/pages.js"></script>
+  <script type="text/javascript" src="resources/js/video.js"></script>
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <link rel="stylesheet" href="resources/css/pages.css">
+  <link rel="stylesheet" href="resources/css/details.css">
+  <link rel="stylesheet" href="resources/css/video.css">
+  <link rel="stylesheet" href="resources/css/movie.css">
+</head>
+
+<body>
+  <div class="main-container">
+
+    <div class="search-bar-container">
+      <input type="text" id="search-bar" class="search-bar" placeholder="Search...">
+      <button type="button" class="search-button" onclick=searchMovie()>Search</button>
+    </div>
+
+
+    <div id="movies-container" class="movies-container"></div>
+
+
+    <div id="pages-container" class="pages-container"></div>
+
+
+    <div id="screen" class="screen">
+      <a class="close-button" onclick="closePlaySample();">x</a>
+      <video id="videoSample" width="600" controls>
+        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div id="fade" class="fade" onClick="closePlaySample();"></div>
+
+  </div>
+</body>
+
+</html>

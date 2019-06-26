@@ -1,0 +1,46 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background-color: darkred;
+}
+
+
+.main-container {
+ display: block;
+}
+
+
+.search-bar-container {
+  margin: auto;
+  width: 70%;
+}
+
+
+.movies-container {
+  position: relative;
+  margin: auto;
+  width: 70%;
+}
+
+
+.search-bar {
+  border-radius: 9px;
+  border: 2px #000 solid;
+  padding: 6px 0px 6px 26px;
+  font-size: 28px;
+  width: 450px;
+}
+
+
+.search-button {
+  border-radius: 9px;
+  border: 2px #000 solid;
+  padding: 6px 26px 6px 26px;
+  background-color: white;
+  font-size: 28px;
+  font-family: "Times New Roman";
+  text-align: center;
+}

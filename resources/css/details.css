@@ -1,0 +1,47 @@
+.detail {
+  margin: 2px 8px 6px 7px;
+  font-size: 16px;
+}
+
+
+.detail-name {
+  float: left;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+
+.detail-value {
+  overflow: hidden;
+  font-family: "Times New Roman";
+}
+
+
+.show-details {
+  width: max-content;
+  min-width: 185px;
+  margin-top: -20px;
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  float: left;
+  position: relative;
+  z-index: 1;
+}
+
+
+.show-details-long {
+  width: max-content;
+  margin-top: -36px;
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  float: left;
+  position: relative;
+  z-index: 3;
+}
+
+
+.hide-details {
+  display: none;
+}

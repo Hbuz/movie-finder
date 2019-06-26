@@ -1,0 +1,30 @@
+.pages-container {
+  margin: auto;
+  width: 67%;
+  float: left;
+  margin-left: 13%;
+  
+}
+
+
+.current-page-number {
+  margin: 0px 20px;
+  font-weight: bold;
+  color: white;
+  font-size: 28px;
+  float: left;
+}
+
+
+.page-number {
+  margin: 0px 20px;
+  font-weight: bold;
+  color: white;
+  font-size: 28px;
+  float: left;
+}
+
+
+.page-number:hover {
+  background-color: blue;
+}

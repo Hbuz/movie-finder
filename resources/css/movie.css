@@ -1,0 +1,59 @@
+img {
+  height: 300px;
+  width: 185px;
+  position: relative;
+  z-index: -2;
+}
+
+
+.poster-shadow {
+  height: 300px;
+  width: 185px;
+  float: left;
+  margin: 14px 10px 10px 10px;
+  box-shadow: 0px -92px 65px -35px rgba(0,0,0,0.91) inset;
+  -webkit-box-shadow: 0px -92px 65px -35px rgba(0,0,0,0.91) inset;
+  -moz-box-shadow: 0px -92px 65px -35px rgba(0,0,0,0.91) inset;
+  cursor: pointer;
+}
+
+
+.poster-shadow:hover {
+  box-shadow: 0px -45px 40px -35px rgba(0,0,0,0.91) inset;
+  -webkit-box-shadow: 0px -45px 40px -35px rgba(0,0,0,0.91) inset;
+  -moz-box-shadow: 0px -45px 40px -35px rgba(0,0,0,0.91) inset;
+  position: relative;
+  z-index: 0;
+}
+
+
+.poster-title {
+  position: relative;
+  z-index: 0;
+  bottom: 25px;
+  left: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Times New Roman";
+  color: white;
+}
+
+
+.poster-title-long {
+  position: relative;
+  z-index: 0;
+  bottom: 40px;
+  left: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Times New Roman";
+  color: white;
+}
+
+
+.no-results-text {
+  font-size: 50px;
+  margin: auto;
+  width: 70%;
+  padding-top: 8%;
+}
