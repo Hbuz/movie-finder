@@ -8,7 +8,7 @@ const searchMovie = () => {
 
 
 
-const fetchMovies = () => {
+const fetchMovies = (title, page) => {
 
   fetch(`http://www.omdbapi.com/?apikey=338f9a63&s=${title}&page=${page}`)
     .then(response => response.json())
@@ -17,7 +17,7 @@ const fetchMovies = () => {
 
       if(totalResults > 0){
         parseMovies(search);
-        listPages(totalResults, page);
+        listPages(title, totalResults, page);
       } else {
         noResults();
       }
@@ -31,5 +31,5 @@ const title = urlParams.get('title');
 const page = urlParams.get('page');
 
 if (title) {
-  fetchMovies();
+  fetchMovies(title, page);
 }
