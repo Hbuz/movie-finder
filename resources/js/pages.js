@@ -1,38 +1,49 @@
+const NAVIGATOR = `...`;
+const FIRST_PAGE = 1;
+const PAGE_RANGE = 8;
+
+
+
 const listPages = (title, totalResults, currentPage) => {
 
   const totalPages = Math.floor((totalResults / 10) + 1)
 
-  if (currentPage <= 8) {
-    if (totalPages < 8) {
-      pageRange(title, 1, totalPages, currentPage);
-    } else {
-      pageRange(title, 1, 8, currentPage);
-      let ceilingPage = 8 + 1;
-      addNav(title, ceilingPage);
-      addOuterPage(title, totalPages);
-    }
-  } else if (currentPage >= totalPages - 8) {
-    addOuterPage(title, 1);
-    let floorPage = totalPages - 8;
-    let previousPage = floorPage -1;
-    addNav(title, previousPage);
-    pageRange(title, floorPage, totalPages, currentPage);
-  } else {
-    addOuterPage(title, 1);
-    let floorPage = currentPage - 3;
-    let previousPage = floorPage -1;
-    addNav(title, previousPage);
-    let ceilingPage = Number(currentPage) + 2;
-    pageRange(title, floorPage, ceilingPage, currentPage);
-    let nextPage = ceilingPage +1;
-    addNav(title, nextPage);
-    addOuterPage(title, totalPages);
-  }
+  let floorPage = 0;
+  let ceilingPage = 0;
 
+  switch (true) {
+    case (currentPage <= PAGE_RANGE):
+      if (totalPages < PAGE_RANGE) {
+        addPageRange(title, FIRST_PAGE, totalPages, currentPage);
+      } else {
+        addPageRange(title, FIRST_PAGE, PAGE_RANGE, currentPage);
+
+        addLastPageNav(title, PAGE_RANGE, totalPages);
+      }
+      break;
+
+    case (currentPage >= totalPages - PAGE_RANGE):
+      floorPage = totalPages - PAGE_RANGE;
+      addFirstPageNav(title, floorPage);
+
+      addPageRange(title, floorPage, totalPages, currentPage);
+      break;
+
+    default:
+      floorPage = currentPage - 3;
+      addFirstPageNav(title, floorPage);
+
+      ceilingPage = Number(currentPage) + 2;
+      addPageRange(title, floorPage, ceilingPage, currentPage);
+
+      addLastPageNav(title, ceilingPage, totalPages);
+      break;
+  }
 }
 
 
-const pageRange = (title, floorPage, ceilingPage, currentPage) => {
+
+const addPageRange = (title, floorPage, ceilingPage, currentPage) => {
   for (let i = floorPage; i <= ceilingPage; i++) {
     let pageLink = document.createElement("a");
 
@@ -48,17 +59,6 @@ const pageRange = (title, floorPage, ceilingPage, currentPage) => {
 
 
 
-const addOuterPage = (title, numberText) => {
-  let pageLink = document.createElement("a");
-  pageLink.setAttribute("href", `index.html?title=${title}&page=${numberText}`);
-  pageLink.classList.add("page-number");
-  pageLink.innerHTML = numberText;
-  let pageDiv = document.createElement("div");
-  pageDiv.appendChild(pageLink);
-  document.getElementById('pages-container').appendChild(pageDiv);
-}
-
-
 const addPage = (pageLink, numberText) => {
   pageLink.innerHTML = numberText;
   let pageDiv = document.createElement("div");
@@ -67,11 +67,30 @@ const addPage = (pageLink, numberText) => {
 }
 
 
-const addNav = (title, nextPage) => {
+
+const addFirstPageNav = (title, floorPage) => {
+  addOuterNav(title, FIRST_PAGE);
+  let previousPagination = floorPage - 1;
+  addOuterNav(title, previousPagination, NAVIGATOR);
+}
+
+
+
+const addLastPageNav = (title, ceilingPage, totalPages) => {
+  let nextPagination = ceilingPage + 1;
+  addOuterNav(title, nextPagination, NAVIGATOR);
+  addOuterNav(title, totalPages)
+}
+
+
+
+const addOuterNav = (title, numberText, navigator) => {
   let pageLink = document.createElement("a");
-  pageLink.setAttribute("href", `index.html?title=${title}&page=${nextPage}`);
+  pageLink.setAttribute("href", `index.html?title=${title}&page=${numberText}`);
   pageLink.classList.add("page-number");
-  pageLink.innerHTML = `...`;
+
+  navigator ? pageLink.innerHTML = navigator : pageLink.innerHTML = numberText;
+
   let pageDiv = document.createElement("div");
   pageDiv.appendChild(pageLink);
   document.getElementById('pages-container').appendChild(pageDiv);
