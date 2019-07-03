@@ -1,11 +1,11 @@
 const parseMovies = (search) => {
   Object.keys(search).forEach(key => {
 
-    let { Poster: poster, Title: title, Type: type, Year: year, imdbID: id } = search[key];
+    const { Poster: poster, Title: title, Type: type, Year: year, imdbID: id } = search[key];
 
-    let img = createPoster(poster, title);
-    let posterTitle = createPosterTitle(title);
-    let posterShadow = createPosterShadow(title, type, year, id, img, posterTitle);
+    const img = createPoster(poster, title);
+    const posterTitle = createPosterTitle(title);
+    const posterShadow = createPosterShadow(title, type, year, id, img, posterTitle);
 
     document.getElementById('movies-container').appendChild(posterShadow);
   })
@@ -14,7 +14,7 @@ const parseMovies = (search) => {
 
 
 const createPoster = (poster, title) => {
-  let img = document.createElement("img");
+  const img = document.createElement("img");
   img.setAttribute("src", poster);
   img.setAttribute("onerror", "this.src='./resources/images/NoPoster.jpg'");
   img.setAttribute("alt", title);
@@ -24,7 +24,7 @@ const createPoster = (poster, title) => {
 
 
 const createPosterTitle = (title) => {
-  let posterTitle = document.createElement("div");
+  const posterTitle = document.createElement("div");
 
   title.length < 28 ? posterTitle.classList.add("poster-title") : posterTitle.classList.add("poster-title-long");
 
@@ -36,7 +36,7 @@ const createPosterTitle = (title) => {
 
 const createPosterShadow = (title, type, year, id, img, posterTitle) => {
 
-  let posterShadow = document.createElement("div");
+  const posterShadow = document.createElement("div");
   posterShadow.classList.add("poster-shadow")
 
   posterShadow.appendChild(img);

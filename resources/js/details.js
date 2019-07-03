@@ -1,6 +1,6 @@
 const showDetails = (title, id) => {
-  let selectedMovie = document.getElementById(id);
-  let moviesContainer = document.getElementById("movies-container");
+  const selectedMovie = document.getElementById(id);
+  const moviesContainer = document.getElementById("movies-container");
   if (selectedMovie) {
 
     detailsToggle(selectedMovie, moviesContainer, title);
@@ -27,8 +27,8 @@ const detailsToggle = (selectedMovie, moviesContainer, title) => {
 
 const closeOtherDetails = (moviesContainer, selectedMovie) => {
   for (let i = 0; i < moviesContainer.children.length; i++) {
-    let movie = moviesContainer.children[i];
-    let movieDetails = movie.children[2];
+    const movie = moviesContainer.children[i];
+    const movieDetails = movie.children[2];
 
     if (movie !== selectedMovie.parentNode &&
       (movieDetails.classList.contains("show-details") || movieDetails.classList.contains("show-details-long"))) {
@@ -42,7 +42,7 @@ const closeOtherDetails = (moviesContainer, selectedMovie) => {
 
 
 const movieDetails = (title, type, year, id) => {
-  let detailContainer = createDetailContainer(id);
+  const detailContainer = createDetailContainer(id);
 
   createPlayButton(detailContainer);
 
@@ -56,7 +56,7 @@ const movieDetails = (title, type, year, id) => {
 
 
 const createDetailContainer = (id) => {
-  let detailContainer = document.createElement("div");
+  const detailContainer = document.createElement("div");
   detailContainer.setAttribute("id", id);
   detailContainer.classList.add("hide-details");
   return detailContainer;
@@ -65,15 +65,15 @@ const createDetailContainer = (id) => {
 
 
 const createDetail = (name, value, container) => {
-  let detail = document.createElement("div");
+  const detail = document.createElement("div");
   detail.classList.add("detail");
 
-  let nameElem = document.createElement("div");
+  const nameElem = document.createElement("div");
   nameElem.classList.add("detail-name");
   nameElem.innerHTML = `${name}: `;
   detail.appendChild(nameElem);
 
-  let valueElem = document.createElement("div");
+  const valueElem = document.createElement("div");
   valueElem.classList.add("detail-value");
   valueElem.innerHTML = value;
   detail.appendChild(valueElem);
@@ -83,7 +83,7 @@ const createDetail = (name, value, container) => {
 
 
 const createPlayButton = (detailContainer) => {
-  let playButton = document.createElement("button");
+  const playButton = document.createElement("button");
   playButton.classList.add("detail");
   playButton.onclick = () => openPlaySample();
   playButton.innerHTML = "Play sample";

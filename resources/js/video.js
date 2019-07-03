@@ -1,5 +1,5 @@
 const openPlaySample = () => {
-  var videoSample = document.getElementById("videoSample");
+  let videoSample = document.getElementById("videoSample");
   window.scrollTo(0, 0);
   document.getElementById('screen').style.display = 'block';
   document.getElementById('fade').style.display = 'block';

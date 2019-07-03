@@ -61,7 +61,7 @@ const addPageRange = (title, floorPage, ceilingPage, currentPage) => {
 
 const addPage = (pageLink, numberText) => {
   pageLink.innerHTML = numberText;
-  let pageDiv = document.createElement("div");
+  const pageDiv = document.createElement("div");
   pageDiv.appendChild(pageLink);
   document.getElementById('pages-container').appendChild(pageDiv);
 }
@@ -70,14 +70,14 @@ const addPage = (pageLink, numberText) => {
 
 const addFirstPageNav = (title, floorPage) => {
   addOuterNav(title, FIRST_PAGE);
-  let previousPagination = floorPage - 1;
+  const previousPagination = floorPage - 1;
   addOuterNav(title, previousPagination, NAVIGATOR);
 }
 
 
 
 const addLastPageNav = (title, ceilingPage, totalPages) => {
-  let nextPagination = ceilingPage + 1;
+  const nextPagination = ceilingPage + 1;
   addOuterNav(title, nextPagination, NAVIGATOR);
   addOuterNav(title, totalPages)
 }
@@ -85,13 +85,13 @@ const addLastPageNav = (title, ceilingPage, totalPages) => {
 
 
 const addOuterNav = (title, numberText, navigator) => {
-  let pageLink = document.createElement("a");
+  const pageLink = document.createElement("a");
   pageLink.setAttribute("href", `index.html?title=${title}&page=${numberText}`);
   pageLink.classList.add("page-number");
 
   navigator ? pageLink.innerHTML = navigator : pageLink.innerHTML = numberText;
 
-  let pageDiv = document.createElement("div");
+  const pageDiv = document.createElement("div");
   pageDiv.appendChild(pageLink);
   document.getElementById('pages-container').appendChild(pageDiv);
 }

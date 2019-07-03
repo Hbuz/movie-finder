@@ -1,7 +1,7 @@
 "use strict";
 
 const searchMovie = () => {
-  let title = document.getElementById("search-bar").value;
+  const title = document.getElementById("search-bar").value;
 
   window.location.href = `index.html?title=${title}&page=1`;
 }
@@ -26,7 +26,7 @@ const fetchMovies = (title, page) => {
 }
 
 
-let urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
 const title = urlParams.get('title');
 const page = urlParams.get('page');
 
